@@ -25,7 +25,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
     name: 'notmuch',
     enable: true,
     filetypes: ['mail'],
-    priority: 99,
+    priority: 0,
     sourceType: SourceType.Service,
     triggerPatterns: [
       /^(Bcc|Cc|From|Reply-To|To):\s*/,
@@ -53,7 +53,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
 function query(input: string): Promise<Match[]> {
   return new Promise((resolve, reject) => {
-    const notmuch = spawn('notmuch', ['address', input])
+    const notmuch = spawn('notmuch', ['address', "*"])
     let matches = []
     let first = true
     notmuch.stdout.on('data', data => {
