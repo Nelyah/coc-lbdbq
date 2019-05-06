@@ -8,7 +8,7 @@
     "build": "tsc -p tsconfig.json",
     "prepare": "npx npm-run-all clean build"
   },
-  "repository": "https://github.com/Nelyah/coc-lbdbq.git",
+  "repository": "https://github.com/Nelyah/coc-notmuch.git",
   "keywords": [
     "coc.nvim",
     "notmuch"
@@ -17,7 +17,7 @@
     "src",
     "lib"
   ],
-  "author": "Hussein Al Abry",
+  "author": "Chloe Dequeker",
   "license": "MIT",
   "engines": {
     "coc": ">=0.0.66"

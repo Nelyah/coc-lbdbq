@@ -1,6 +1,6 @@
-# coc-lbdbq
+# coc-notmuch
 
-lbdbq completion for [coc.nvim](https://github.com/neoclide/coc.nvim).
+notmuch completion for [coc.nvim](https://github.com/neoclide/coc.nvim).
 
 ![scrot](scrot.png)
 
