@@ -1,4 +1,4 @@
-coc-lbdbq
+coc-notmuch
 Copyright © 2019 Hussein Al Abry
 
 Permission is hereby granted, free of charge, to any person obtaining

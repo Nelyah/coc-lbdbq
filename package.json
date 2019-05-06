@@ -20,7 +20,7 @@
   "author": "Hussein Al Abry",
   "license": "MIT",
   "engines": {
-    "coc": "^0.0.66"
+    "coc": ">=0.0.66"
   },
   "devDependencies": {
     "@types/node": "^11.13.8",

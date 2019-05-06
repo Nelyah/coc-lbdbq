@@ -64,7 +64,7 @@ function query(input: string): Promise<Match[]> {
       data
         .toString()
         .split('\n')
-        .forEach(m => {
+        .forEach((m: string) => {
           const result = m.toString()
           matches.push({ result })
         })
