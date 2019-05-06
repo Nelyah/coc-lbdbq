@@ -1,17 +1,17 @@
 {
-  "name": "coc-lbdbq",
+  "name": "coc-notmuch",
   "version": "0.1.0",
-  "description": "lbdbq extension for coc.nvim",
+  "description": "notmuch extension for coc.nvim",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib",
     "build": "tsc -p tsconfig.json",
     "prepare": "npx npm-run-all clean build"
   },
-  "repository": "https://github.com/zidhuss/coc-lbdbq.git",
+  "repository": "https://github.com/Nelyah/coc-lbdbq.git",
   "keywords": [
     "coc.nvim",
-    "lbdbq"
+    "notmuch"
   ],
   "files": [
     "src",
