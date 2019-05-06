@@ -15,14 +15,14 @@ export async function activate(context: ExtensionContext): Promise<void> {
   const { subscriptions } = context
 
   try {
-    which.sync('lbdbq')
+    which.sync('notmuch')
   } catch (e) {
-    workspace.showMessage('lbdbq required for coc-lbdbq', 'warning')
+    workspace.showMessage('notmuch required for coc-notmuch', 'warning')
     return
   }
 
   let source: ISource = {
-    name: 'lbdbq',
+    name: 'notmuch',
     enable: true,
     filetypes: ['mail'],
     priority: 99,
@@ -37,13 +37,11 @@ export async function activate(context: ExtensionContext): Promise<void> {
       }
 
       const { input } = opt
-
       const matches = await query(input)
-
       return {
         items: matches.map(m => {
           return {
-            word: `${m.name} <${m.email}>`,
+            word: `${m.result}`,
           }
         }),
       }
@@ -55,36 +53,27 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
 function query(input: string): Promise<Match[]> {
   return new Promise((resolve, reject) => {
-    const lbdbq = spawn('lbdbq', [input])
-
-    let matches: Match[] = []
+    const notmuch = spawn('notmuch', ['address', input])
+    let matches = []
     let first = true
-    lbdbq.stdout.on('data', data => {
+    notmuch.stdout.on('data', data => {
       if (first) {
         first = false
         return
       }
-
       data
         .toString()
         .split('\n')
-        .slice(0, -1)
-        .forEach((m: string) => {
-          const [email, name] = m
-            .toString()
-            .split(/\t/)
-            .slice(0, 2)
-          matches.push({ email, name })
+        .forEach(m => {
+          const result = m.toString()
+          matches.push({ result })
         })
     })
-
-    lbdbq.on('exit', () => resolve(matches))
-
-    lbdbq.on('error', err => reject(err))
+    notmuch.on('exit', () => resolve(matches))
+    notmuch.on('error', err => reject(err))
   })
 }
 
 interface Match {
-  name: string
-  email: string
+  result: string
 }
