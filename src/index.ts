@@ -25,7 +25,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
     name: 'notmuch',
     enable: true,
     filetypes: ['mail'],
-    priority: 0,
+    priority: 1,
     sourceType: SourceType.Service,
     triggerPatterns: [
       /^(Bcc|Cc|From|Reply-To|To):\s*/,
