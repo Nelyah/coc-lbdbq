@@ -55,12 +55,7 @@ function query(input: string): Promise<Match[]> {
   return new Promise((resolve, reject) => {
     const notmuch = spawn('notmuch', ['address', "*"])
     let matches = []
-    let first = true
     notmuch.stdout.on('data', data => {
-      if (first) {
-        first = false
-        return
-      }
       data
         .toString()
         .split('\n')
