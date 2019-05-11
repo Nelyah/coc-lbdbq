@@ -1,5 +1,5 @@
-coc-notmuch
-Copyright © 2019 Hussein Al Abry
+[[coc-notmuch]]
+Copyright © 2019 Chloé Dequeker
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the "Software"),

@@ -42,11 +42,11 @@
         },
         "coc.source.notmuch.shortcut": {
           "type": "string",
-          "default": "NOTM"
+          "default": "NM"
         },
         "coc.source.notmuch.priority": {
           "type": "integer",
-          "default": 1
+          "default": 99
         },
         "coc.source.notmuch.filetypes": {
           "type": [
